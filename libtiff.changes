@@ -1,0 +1,40 @@
+* Thu May 5 2011 Bintian Wang <bintian.wang@windriver.com> - 3.9.5
+- Upgrade to 3.9.5
+- Delete following patches since it is integrated 
+- libtiff-check-bitspersample.patch
+- libtiff-checkbytecount.patch 
+- libtiff-subsampling.patch.save
+- libtiff-unknown-fix.patch
+- libtiff-ycbcr-clamp.patch
+- Fix BMC#17092 BMC#17059 BMC#15056
+
+* Wed Apr 27 2011 Bintian Wang <bintian.wang@windriver.com> - 3.9.4
+- Add libtiff-check-bitspersample.patch to fix CVE-2011-1167(BMC#15056).
+- This patch fix the potential buffer overflow with thunder encoded files 
+- with wrong bitspersample set
+
+* Sun Sep 19 2010 Ling Yue <ling.yue@intel.com> - 3.9.4
+- Add libtiff-ycbcr-clamp.patch to fix CVE-2010-2595 (BMC#6499).
+
+* Thu Aug 26 2010 Ling Yue <ling.yue@intel.com> - 3.9.4
+- Add libtiff-subsampling.patch.save for CVE-2010-2597,CVE-2010-2596. (BMC#5490, BMC#5563)
+- Add libtiff-unknown-fix.patch for CVE-2010-2481, CVE-2010-2631, CVE-2010-2630
+  (BMC#5597, BMC#5589, BMC#5565)
+- Add libtiff-checkbytecount.patch for CVE-2010-2482 (BMC#5595)
+- Use spectacle
+
+* Mon Jul 05 2010 Bin Gao <bin.gao@intel.com> - 3.9.4
+- Update to 3.9.4 and fix BMC #3619, #3623, #3626, #3627
+
+* Thu Jun 24 2010 Bin Gao <bin.gao@intel.com> - 3.8.2-13
+- Fix %doc for man files
+- Disable static
+
+* Tue Jul 14 2009 Passion Zhao <passion.zhao@intel.com> - 3.8.2-13
+- Add tiff-3.8.2-CVE-2009-2347.patch from vendor-sec
+
+* Wed Jul 01 2009 Passion Zhao <passion.zhao@intel.com> - 3.8.2-12
+- Add patch for bugtraq id: 35451 "libtiff buffer underflow in LZWDecodeCompat"
+
+* Tue Jan 13 2009 Anas Nashif <anas.nashif@intel.com> 3.8.2
+- Applied update from FC with security fixes
