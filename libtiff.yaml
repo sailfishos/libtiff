@@ -1,12 +1,12 @@
 Name: libtiff
 Summary: Library of functions for manipulating TIFF format image files
-Version: 3.9.5
+Version: 4.0.1
 Release: 1
 Group: System/Libraries
 License: libtiff
 URL: http://www.libtiff.org/
 Sources:
-    - ftp://ftp.remotesensing.org/pub/libtiff/tiff-%{version}.tar.gz
+    - http://download.osgeo.org/libtiff/tiff-%{version}.tar.gz
 Patches:
 Description: |
     The libtiff package contains a library of functions for manipulating

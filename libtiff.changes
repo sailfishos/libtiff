@@ -1,3 +1,6 @@
+* Mon Apr 30 2012 Marko Saukko <sage@merproject.org> - 4.0.1
+- Fixes MER#287: upgrade libtiff to recent version
+
 * Thu May 5 2011 Bintian Wang <bintian.wang@windriver.com> - 3.9.5
 - Upgrade to 3.9.5
 - Delete following patches since it is integrated 
