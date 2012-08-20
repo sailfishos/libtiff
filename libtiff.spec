@@ -13,7 +13,7 @@ Version:    4.0.2
 Release:    1
 Group:      System/Libraries
 License:    libtiff
-URL:        http://www.libtiff.org/
+URL:        http://www.remotesensing.org/libtiff/
 Source0:    http://download.osgeo.org/libtiff/tiff-%{version}.tar.gz
 Source100:  libtiff.yaml
 Patch0:     libtiff-4.0.2-tiff2pdf.patch

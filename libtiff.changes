@@ -1,3 +1,7 @@
+* Mon Aug 20 2012 Antti Alatarvas <antti.alatarvas@gmail.com> - 4.0.2
+- Changed libtiff.yaml URL
+- Fixes MER#259 : libtiff yaml file has obsolete URL entry
+
 * Sun Jul 29 2012 Michael de Lang <kingoipo@gmail.com> - 4.0.2
 - Add patch for CVE-2012-3401
 - Fixes MER#468: update libtiff to 4.0.2 [possibly CVE-2012-1173, CVE-2012-2113]
