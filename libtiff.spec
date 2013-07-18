@@ -9,14 +9,20 @@ Name:       libtiff
 # << macros
 
 Summary:    Library of functions for manipulating TIFF format image files
-Version:    4.0.2
+Version:    4.0.3
 Release:    1
 Group:      System/Libraries
 License:    libtiff
 URL:        http://www.remotesensing.org/libtiff/
 Source0:    http://download.osgeo.org/libtiff/tiff-%{version}.tar.gz
 Source100:  libtiff.yaml
-Patch0:     libtiff-4.0.2-tiff2pdf.patch
+Patch0:     libtiff-am-version.patch
+Patch1:     libtiff-CVE-2012-4447.patch
+Patch2:     libtiff-CVE-2012-4564.patch
+Patch3:     libtiff-printdir-width.patch
+Patch4:     libtiff-jpeg-test.patch
+Patch5:     libtiff-CVE-2013-1960.patch
+Patch6:     libtiff-CVE-2013-1961.patch
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(zlib)
@@ -51,8 +57,21 @@ install the libtiff package.
 %prep
 %setup -q -n tiff-%{version}
 
-# libtiff-4.0.2-tiff2pdf.patch
+# libtiff-am-version.patch
 %patch0 -p1
+# libtiff-CVE-2012-4447.patch
+%patch1 -p1
+# libtiff-CVE-2012-4564.patch
+%patch2 -p1
+# libtiff-printdir-width.patch
+%patch3 -p1
+# libtiff-jpeg-test.patch
+%patch4 -p1
+# libtiff-CVE-2013-1960.patch
+%patch5 -p1
+# libtiff-CVE-2013-1961.patch
+%patch6 -p1
+
 # >> setup
 # << setup
 

@@ -8,7 +8,14 @@ URL: http://www.remotesensing.org/libtiff/
 Sources:
     - http://download.osgeo.org/libtiff/tiff-%{version}.tar.gz
 Patches:
-    - libtiff-4.0.2-tiff2pdf.patch
+    - libtiff-am-version.patch
+    - libtiff-CVE-2012-4447.patch
+    - libtiff-CVE-2012-4564.patch
+    - libtiff-printdir-width.patch
+    - libtiff-jpeg-test.patch
+    - libtiff-CVE-2013-1960.patch
+    - libtiff-CVE-2013-1961.patch
+
 Description: |
     The libtiff package contains a library of functions for manipulating
     TIFF (Tagged Image File Format) image format files.  TIFF is a widely

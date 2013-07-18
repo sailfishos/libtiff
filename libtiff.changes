@@ -1,3 +1,13 @@
+* Thu Jul 18 2013 Davide Bettio <davide.bettio@ispirata.com> - 4.0.3
+- Updated to 4.0.3 (it also fix CVE-2012-3401)
+- Added patch for CVE-2012-4447
+- Added patch for CVE-2012-4564
+- Added patch for CVE-2013-1960
+- Added patch for CVE-2013-1961
+- Patch to build with automake 1.11
+- Patch for compatibility with libjpeg-turbo
+- Patch to "Fix TIFF_VARIABLE/TIFF_VARIABLE2 confusion in TIFFPrintDirectory"
+
 * Mon Aug 20 2012 Antti Alatarvas <antti.alatarvas@gmail.com> - 4.0.2
 - Changed libtiff.yaml URL
 - Fixes MER#259 : libtiff yaml file has obsolete URL entry
