@@ -15,6 +15,10 @@ Patches:
     - libtiff-jpeg-test.patch
     - libtiff-CVE-2013-1960.patch
     - libtiff-CVE-2013-1961.patch
+    - libtiff-CVE-2013-4231.patch
+    - libtiff-CVE-2013-4232.patch
+    - libtiff-CVE-2013-4244.patch
+    - libtiff-CVE-2013-4243.patch
 
 Description: |
     The libtiff package contains a library of functions for manipulating

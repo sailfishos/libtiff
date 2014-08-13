@@ -23,6 +23,10 @@ Patch3:     libtiff-printdir-width.patch
 Patch4:     libtiff-jpeg-test.patch
 Patch5:     libtiff-CVE-2013-1960.patch
 Patch6:     libtiff-CVE-2013-1961.patch
+Patch7:     libtiff-CVE-2013-4231.patch
+Patch8:     libtiff-CVE-2013-4232.patch
+Patch9:     libtiff-CVE-2013-4244.patch
+Patch10:    libtiff-CVE-2013-4243.patch
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(zlib)
@@ -71,6 +75,14 @@ install the libtiff package.
 %patch5 -p1
 # libtiff-CVE-2013-1961.patch
 %patch6 -p1
+# libtiff-CVE-2013-4231.patch
+%patch7 -p1
+# libtiff-CVE-2013-4232.patch
+%patch8 -p1
+# libtiff-CVE-2013-4244.patch
+%patch9 -p1
+# libtiff-CVE-2013-4243.patch
+%patch10 -p1
 
 # >> setup
 # << setup
