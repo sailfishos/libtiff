@@ -20,7 +20,6 @@ used file format for bitmapped images.  TIFF files usually end in the
 The libtiff package should be installed if you need to manipulate TIFF
 format image files.
 
-
 %package devel
 Summary:    Development tools for programs which will use the libtiff library
 Group:      Development/Libraries
