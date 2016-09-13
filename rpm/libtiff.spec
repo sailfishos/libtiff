@@ -57,7 +57,6 @@ rm -rf %{buildroot}
 %make_install
 
 # remove what we didn't want installed
-rm $RPM_BUILD_ROOT%{_libdir}/*.la
 rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/
 
 # no libGL dependency, please
@@ -70,26 +69,20 @@ rm -f $RPM_BUILD_ROOT%{_bindir}/tiffsv
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/tiffgt.1
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/sgi2tiff.1
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/tiffsv.1
-rm -f html/man/tiffgt.1.html
-rm -f html/man/sgi2tiff.1.html
-rm -f html/man/tiffsv.1.html
-
-# don't include documentation Makefiles, they are a multilib hazard
-find html -name 'Makefile*' | xargs rm
 
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-,root,root,0755)
+%defattr(-,root,root,-)
 %doc COPYRIGHT
 %{_libdir}/libtiff.so.*
 %{_libdir}/libtiffxx.so.*
 
 %files devel
-%defattr(-,root,root,0755)
-%doc TODO ChangeLog html README RELEASE-DATE VERSION
+%defattr(-,root,root,-)
+%doc TODO ChangeLog README RELEASE-DATE VERSION
 %{_includedir}/*
 %{_libdir}/libtiff.so
 %{_libdir}/libtiffxx.so
@@ -98,5 +91,6 @@ find html -name 'Makefile*' | xargs rm
 %{_libdir}/pkgconfig/libtiff-4.pc
 
 %files tools
+%defattr(-,root,root,-)
 %{_bindir}/*
 %{_mandir}/man1/*
