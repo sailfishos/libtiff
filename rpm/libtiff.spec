@@ -1,10 +1,10 @@
 Name:       libtiff
 Summary:    Library of functions for manipulating TIFF format image files
-Version:    4.0.6
+Version:    4.0.10
 Release:    1
 Group:      System/Libraries
 License:    libtiff
-URL:        http://www.remotesensing.org/libtiff/
+URL:        http://www.simplesystems.org/libtiff/
 Source0:    %{name}-%{version}.tar.gz
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
@@ -44,10 +44,11 @@ This package contains command-line programs for manipulating TIFF format
 image files using the libtiff library.
 
 %prep
-%setup -q -n %{name}-%{version}/%{name}
+%setup -q -n %{name}-%{version}/upstream
 
 %build
 export CFLAGS="%{optflags} -fno-strict-aliasing"
+./autogen.sh
 %configure --disable-static
 make %{?jobs:-j%jobs}
 
@@ -81,7 +82,7 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/tiffsv.1
 
 %files devel
 %defattr(-,root,root,-)
-%doc TODO ChangeLog README RELEASE-DATE VERSION
+%doc TODO ChangeLog README.md RELEASE-DATE VERSION
 %{_includedir}/*
 %{_libdir}/libtiff.so
 %{_libdir}/libtiffxx.so
