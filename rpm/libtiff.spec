@@ -43,6 +43,14 @@ Requires:   %{name} = %{version}-%{release}
 This package contains command-line programs for manipulating TIFF format
 image files using the libtiff library.
 
+%package doc
+Summary:   Documentation for %{name}
+Group:     Documentation
+Requires:  %{name} = %{version}-%{release}
+
+%description doc
+Man and info pages for %{name}.
+
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
@@ -50,14 +58,11 @@ image files using the libtiff library.
 export CFLAGS="%{optflags} -fno-strict-aliasing"
 ./autogen.sh
 %configure --disable-static
-make %{?jobs:-j%jobs}
+make %{?_smp_mflags}
 
 %install
 rm -rf %{buildroot}
 %make_install
-
-# remove what we didn't want installed
-rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/
 
 # no libGL dependency, please
 rm -f $RPM_BUILD_ROOT%{_bindir}/tiffgt
@@ -70,27 +75,35 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man1/tiffgt.1
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/sgi2tiff.1
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/tiffsv.1
 
+mv $RPM_BUILD_ROOT%{_docdir}/tiff-* \
+   $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+rm $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/COPYRIGHT
+ln -s ../../licenses/%{name}-%{version}/COPYRIGHT \
+   $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/COPYRIGHT
+
+
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
 
 %files
 %defattr(-,root,root,-)
-%doc COPYRIGHT
-%{_libdir}/libtiff.so.*
-%{_libdir}/libtiffxx.so.*
+%license COPYRIGHT
+%{_libdir}/%{name}.so.*
+%{_libdir}/%{name}xx.so.*
 
 %files devel
 %defattr(-,root,root,-)
-%doc TODO ChangeLog README.md RELEASE-DATE VERSION
 %{_includedir}/*
-%{_libdir}/libtiff.so
-%{_libdir}/libtiffxx.so
-%doc %{_mandir}/man3/*
-%doc %{_mandir}/man1/*
-%{_libdir}/pkgconfig/libtiff-4.pc
+%{_libdir}/%{name}.so
+%{_libdir}/%{name}xx.so
+%{_libdir}/pkgconfig/%{name}-4.pc
 
 %files tools
 %defattr(-,root,root,-)
 %{_bindir}/*
-%{_mandir}/man1/*
+
+%files doc
+%defattr(-,root,root,-)
+%{_mandir}/man*/*
+%{_docdir}/%{name}-%{version}
