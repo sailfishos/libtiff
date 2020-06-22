@@ -2,14 +2,14 @@ Name:       libtiff
 Summary:    Library of functions for manipulating TIFF format image files
 Version:    4.1.0
 Release:    1
-Group:      System/Libraries
 License:    libtiff
-URL:        http://www.simplesystems.org/libtiff/
+URL:        https://git.sailfishos.org/mer-core/libtiff/
 Source0:    %{name}-%{version}.tar.gz
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  libjpeg-devel
+BuildRequires:  automake autoconf libtool
 
 %description
 The libtiff package contains a library of functions for manipulating
@@ -22,7 +22,6 @@ format image files.
 
 %package devel
 Summary:    Development tools for programs which will use the libtiff library
-Group:      Development/Libraries
 Requires:   %{name} = %{version}-%{release}
 
 %description devel
@@ -36,7 +35,6 @@ install the libtiff package.
 
 %package tools
 Summary:    Command-line utility programs for manipulating TIFF files
-Group:      Development/Libraries
 Requires:   %{name} = %{version}-%{release}
 
 %description tools
@@ -45,14 +43,13 @@ image files using the libtiff library.
 
 %package doc
 Summary:   Documentation for %{name}
-Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
 
 %description doc
 Man and info pages for %{name}.
 
 %prep
-%setup -q -n %{name}-%{version}/upstream
+%autosetup -n %{name}-%{version}/upstream
 
 %build
 export CFLAGS="%{optflags} -fno-strict-aliasing"
