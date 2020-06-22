@@ -1,6 +1,6 @@
 Name:       libtiff
 Summary:    Library of functions for manipulating TIFF format image files
-Version:    4.0.10
+Version:    4.1.0
 Release:    1
 Group:      System/Libraries
 License:    libtiff
