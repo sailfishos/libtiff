@@ -1,9 +1,9 @@
 Name:       libtiff
 Summary:    Library of functions for manipulating TIFF format image files
-Version:    4.1.0
+Version:    4.3.0
 Release:    1
 License:    libtiff
-URL:        https://git.sailfishos.org/mer-core/libtiff/
+URL:        https://github.com/sailfishos/libtiff
 Source0:    %{name}-%{version}.tar.gz
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
@@ -53,6 +53,7 @@ Man and info pages for %{name}.
 
 %build
 export CFLAGS="%{optflags} -fno-strict-aliasing"
+sed -i "s/for file.*/for false/g" autogen.sh
 ./autogen.sh
 %configure --disable-static
 make %{?_smp_mflags}
