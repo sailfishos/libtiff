@@ -1,6 +1,6 @@
 Name:       libtiff
 Summary:    Library of functions for manipulating TIFF format image files
-Version:    4.3.0
+Version:    4.5.0
 Release:    1
 License:    libtiff
 URL:        https://github.com/sailfishos/libtiff
@@ -56,10 +56,9 @@ export CFLAGS="%{optflags} -fno-strict-aliasing"
 sed -i "s/for file.*/for false/g" autogen.sh
 ./autogen.sh
 %configure --disable-static
-make %{?_smp_mflags}
+%make_build
 
 %install
-rm -rf %{buildroot}
 %make_install
 
 # no libGL dependency, please
@@ -69,15 +68,11 @@ rm -f $RPM_BUILD_ROOT%{_bindir}/tiffgt
 rm -f $RPM_BUILD_ROOT%{_bindir}/sgi2tiff
 rm -f $RPM_BUILD_ROOT%{_bindir}/tiffsv
 
-rm -f $RPM_BUILD_ROOT%{_mandir}/man1/tiffgt.1
-rm -f $RPM_BUILD_ROOT%{_mandir}/man1/sgi2tiff.1
-rm -f $RPM_BUILD_ROOT%{_mandir}/man1/tiffsv.1
-
 mv $RPM_BUILD_ROOT%{_docdir}/tiff-* \
    $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
-rm $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/COPYRIGHT
-ln -s ../../licenses/%{name}-%{version}/COPYRIGHT \
-   $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/COPYRIGHT
+rm $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/LICENSE.md
+ln -s ../../licenses/%{name}-%{version}/LICENSE.md \
+   $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}/LICENSE.md
 
 
 %post -p /sbin/ldconfig
@@ -86,7 +81,7 @@ ln -s ../../licenses/%{name}-%{version}/COPYRIGHT \
 
 %files
 %defattr(-,root,root,-)
-%license COPYRIGHT
+%license LICENSE.md
 %{_libdir}/%{name}.so.*
 %{_libdir}/%{name}xx.so.*
 
@@ -103,5 +98,4 @@ ln -s ../../licenses/%{name}-%{version}/COPYRIGHT \
 
 %files doc
 %defattr(-,root,root,-)
-%{_mandir}/man*/*
 %{_docdir}/%{name}-%{version}
