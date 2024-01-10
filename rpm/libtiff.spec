@@ -1,6 +1,6 @@
 Name:       libtiff
 Summary:    Library of functions for manipulating TIFF format image files
-Version:    4.5.0
+Version:    4.6.0
 Release:    1
 License:    libtiff
 URL:        https://github.com/sailfishos/libtiff
