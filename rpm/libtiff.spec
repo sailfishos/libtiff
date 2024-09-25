@@ -1,11 +1,10 @@
 Name:       libtiff
 Summary:    Library of functions for manipulating TIFF format image files
-Version:    4.6.0
+Version:    4.7.0
 Release:    1
 License:    libtiff
 URL:        https://github.com/sailfishos/libtiff
 Source0:    %{name}-%{version}.tar.gz
-Patch0:     0001-Prevent-some-out-of-memory-attacks.patch
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(zlib)
@@ -81,22 +80,18 @@ ln -s ../../licenses/%{name}-%{version}/LICENSE.md \
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-,root,root,-)
 %license LICENSE.md
 %{_libdir}/%{name}.so.*
 %{_libdir}/%{name}xx.so.*
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/*
 %{_libdir}/%{name}.so
 %{_libdir}/%{name}xx.so
 %{_libdir}/pkgconfig/%{name}-4.pc
 
 %files tools
-%defattr(-,root,root,-)
 %{_bindir}/*
 
 %files doc
-%defattr(-,root,root,-)
 %{_docdir}/%{name}-%{version}
